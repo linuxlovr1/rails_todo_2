@@ -1,0 +1,7 @@
+<h1> Todo list </h1>
+<p><%= link_to "new Item", new_item_path %></p>
+<% @items.each do |item| %>
+  <h2><%= item.title %></h2>
+  <h3>%= item.items %></h3>
+  <%= link_to "Show list", item_path(item) %>
+<% end %>
