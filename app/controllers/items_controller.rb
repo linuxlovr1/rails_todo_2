@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
@@ -18,6 +18,20 @@ class ItemsController < ApplicationController
       redirect_to items_path
     else
       render :new
+    end
+
+    def edit
+      @items = Item.find(params[:id])
+    end
+
+    def update
+      @item = Item.find(params[:id])
+
+      if @item.update(tem_params)
+        redirect_to items_path
+      else
+        render :edit
+      end
     end
   end
 
